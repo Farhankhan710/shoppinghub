@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Hub - Premium Store</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f6fa;
+            color: #2c3e50;
+        }
+
+        /* ✨ LOGO FADE-UP ANIMATION EFFECT */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .main-header {
+            background-color: #ffffff;
+            padding: 20px 15px 10px 15px;
+            text-align: center;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        .brand-logo span { font-size: 28px; font-weight: 800; color: #2c3e50; }
+        .highlight-text { color: #3498db; }
+        .main-header p { margin: 5px 0 0 0; font-size: 12px; color: #7f8c8d; letter-spacing: 1px; }
+
+        /* 📌 STICKY NAVIGATION MENU BAR */
+        .category-menu-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 10px;
+            padding: 10px 15px;
+            border-bottom: 2px solid #3498db;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            -webkit-overflow-scrolling: touch;
+        }
+        .category-menu-bar::-webkit-scrollbar { display: none; }
+        
+        .menu-btn {
+            background-color: #f0f6fa;
+            color: #2c3e50;
+            border: 1px solid #d6e4f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* 🗂️ SECTION LAYOUT & SCROLL FIX */
+        .section-container { 
+            padding: 20px 0; 
+            background: #ffffff; 
+            margin-bottom: 10px; 
+            scroll-margin-top: 75px; 
+        }
+        
+        .category-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            margin-bottom: 12px;
+        }
+        .category-header-flex h2 { margin: 0; font-size: 18px; color: #2c3e50; }
+        
+        .unique-see-all {
+            background-color: transparent;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 6px 16px;
+            border: 1px solid #3498db;
+            border-radius: 20px;
+        }
+
+        /* 🔄 HORIZONTAL SLIDER VIEW */
+        .products-slider-row { 
+            display: flex !important; 
+            overflow-x: auto !important; 
+            gap: 14px; 
+            padding: 5px 16px 15px 16px; 
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        .products-slider-row::-webkit-scrollbar { display: none; }
+
+        /* 📦 PRODUCT CARDS SYSTEM */
+        .resell-card {
+            flex: 0 0 160px !important;
+            max-width: 160px;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e6f0fa;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .img-box { height: 140px; display: flex; align-items: center; justify-content: center; background: #f8fafc; }
+        .img-box img { max-width: 100%; max-height: 100%; object-fit: cover; }
+        .card-details { padding: 10px; }
+        .product-title { margin: 0 0 4px 0; font-size: 13px; font-weight: 600; color: #34495e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .price-tag { font-size: 15px; font-weight: 700; color: #2c3e50; margin: 0 0 8px 0; }
+        .resell-btn { background-color: #3498db; color: white; border: none; padding: 8px; width: 100%; font-weight: bold; border-radius: 6px; font-size: 13px; cursor: pointer; }
+
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="brand-logo"><span>Shopping <span class="highlight-text">Hub</span></span></div>
+        <p>AAPKA APNA ONLINE BAZAAR</p>
+    </header>
+
+    <div class="category-menu-bar">
+        <button class="menu-btn" onclick="document.getElementById('watches-section').scrollIntoView({behavior: 'smooth'})">⌚ Watches</button>
+        <button class="menu-btn" onclick="document.getElementById('men-section').scrollIntoView({behavior: 'smooth'})">👕 Men's Wear</button>
+        <button class="menu-btn" onclick="document.getElementById('women-section').scrollIntoView({behavior: 'smooth'})">👗 Women's Wear</button>
+        <button class="menu-btn" onclick="document.getElementById('electronics-section').scrollIntoView({behavior: 'smooth'})">🔌 Electronics</button>
+    </div>
+
+    <div class="section-container" id="watches-section">
+        <div class="category-header-flex">
+            <h2>Premium Watches</h2>
+            <a href="watches.html" class="unique-see-all">View All</a>
+        </div>
+        <div class="products-slider-row">
+            <div class="resell-card">
+                <div class="img-box"><img src="watch1.jpg"></div>
+                <div class="card-details">
+                    <h3 class="product-title">Black Matte Watch</h3>
+                    <p class="price-tag">₹999</p>
+                    <button class="resell-btn" onclick="window.open('https://flipkart.com', '_blank')">Order</button>
+                </div>
+            </div>
+            <div class="resell-card">
+                <div class="img-box"><img src="watch2.jpg"></div>
+                <div class="card-details">
+                    <h3 class="product-title">Luxury Metal Watch</h3>
+                    <p class="price-tag">₹1,499</p>
+                    <button class="resell-btn" onclick="window.open('https://flipkart.com', '_blank')">Order</button>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+    <div class="section-container" id="men-section">
+        <div class="category-header-flex">
+            <h2>Men's Collection</h2>
+            <a href="men.html" class="unique-see-all">View All</a>
+        </div>
+        <div class="products-slider-row">
+            <div class="resell-card">
+                <div class="img-box"><img src="shirt1.jpg"></div>
+                <div class="card-details">
+                    <h3 class="product-title">Slim Fit Shirt</h3>
+                    <p class="price-tag">₹499</p>
+                    <button class="resell-btn" onclick="window.open('https://flipkart.com', '_blank')">Order</button>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+    <div class="section-container" id="women-section">
+        <div class="category-header-flex">
+            <h2>Women's Wear</h2>
+            <a href="women.html" class="unique-see-all">View All</a>
+        </div>
+        <div class="products-slider-row">
+            <div class="resell-card">
+                <div class="img-box"><img src="kurti1.jpg"></div>
+                <div class="card-details">
+                    <h3 class="product-title">Anarkali Ethnic Kurti</h3>
+                    <p class="price-tag">₹699</p>
+                    <button class="resell-btn" onclick="window.open('https://flipkart.com', '_blank')">Order</button>
+                </div>
+            </div>
+            <div class="resell-card">
+                <div class="img-box"><img src="saree1.jpg"></div>
+                <div class="card-details">
+                    <h3 class="product-title">Designer Saree</h3>
+                    <p class="price-tag">₹1,499</p>
+                    <button class="resell-btn" onclick="window.open('https://flipkart.com', '_blank')">Order</button>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+    <div class="section-container" id="electronics-section">
+        <div class="category-header-flex">
+            <h2>Smart Electronics</h2>
+            <a href="electronics.html" class="unique-see-all">View All</a>
+        </div>
+        <div class="products-slider-row">
+            <div class="resell-card">
+                <div class="img-box"><img src="earbuds1.jpg"></div>
+                <div class="card-details">
+                    <h3 class="product-title">Wireless Earbuds</h3>
+                    <p class="price-tag">₹799</p>
+                    <button class="resell-btn" onclick="window.open('https://flipkart.com', '_blank')">Order</button>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+</body>
+</html>
